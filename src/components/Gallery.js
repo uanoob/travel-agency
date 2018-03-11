@@ -1,210 +1,211 @@
 import React from 'react';
+import boatImg from '../assets/images/boat.jpg';
 
 const Gallery = () => (
-  <main role="main" className="container">
-    <div className="row">
-      <div className="col-md-4">
-        <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-          <img
-            className="mr-3"
-            src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-            alt=""
-            width="48"
-            height="48"
-          />
-          <div className="lh-100">
-            <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-            <small>Since 2011</small>
+  <main role="main">
+    <div className="album py-5 bg-light">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div className="my-3 p-3 bg-white rounded box-shadow">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-          <div className="media text-muted pt-3">
-            <img
-              data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-              alt=""
-              className="mr-2 rounded"
-            />
-            <p className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong className="d-block text-gray-dark">@username</strong>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-              commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
           </div>
-          <small className="d-block text-right mt-3">
-            <a href="/">All updates</a>
-          </small>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-          <img
-            className="mr-3"
-            src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-            alt=""
-            width="48"
-            height="48"
-          />
-          <div className="lh-100">
-            <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-            <small>Since 2011</small>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div className="my-3 p-3 bg-white rounded box-shadow">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-          <div className="media text-muted pt-3">
-            <img
-              data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-              alt=""
-              className="mr-2 rounded"
-            />
-            <p className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong className="d-block text-gray-dark">@username</strong>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-              commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
           </div>
-          <small className="d-block text-right mt-3">
-            <a href="/">All updates</a>
-          </small>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-          <img
-            className="mr-3"
-            src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-            alt=""
-            width="48"
-            height="48"
-          />
-          <div className="lh-100">
-            <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-            <small>Since 2011</small>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="my-3 p-3 bg-white rounded box-shadow">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-          <div className="media text-muted pt-3">
-            <img
-              data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-              alt=""
-              className="mr-2 rounded"
-            />
-            <p className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong className="d-block text-gray-dark">@username</strong>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-              commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
+          <div className="col-md-4">
+            <div className="card mb-4 box-shadow">
+              <img className="card-img-top" src={boatImg} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      View
+                    </button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                      Edit
+                    </button>
+                  </div>
+                  <small className="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
           </div>
-          <small className="d-block text-right mt-3">
-            <a href="/">All updates</a>
-          </small>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-          <img
-            className="mr-3"
-            src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-            alt=""
-            width="48"
-            height="48"
-          />
-          <div className="lh-100">
-            <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-            <small>Since 2011</small>
-          </div>
-        </div>
-
-        <div className="my-3 p-3 bg-white rounded box-shadow">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-          <div className="media text-muted pt-3">
-            <img
-              data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-              alt=""
-              className="mr-2 rounded"
-            />
-            <p className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong className="d-block text-gray-dark">@username</strong>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-              commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
-          </div>
-          <small className="d-block text-right mt-3">
-            <a href="/">All updates</a>
-          </small>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-          <img
-            className="mr-3"
-            src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-            alt=""
-            width="48"
-            height="48"
-          />
-          <div className="lh-100">
-            <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-            <small>Since 2011</small>
-          </div>
-        </div>
-
-        <div className="my-3 p-3 bg-white rounded box-shadow">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-          <div className="media text-muted pt-3">
-            <img
-              data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-              alt=""
-              className="mr-2 rounded"
-            />
-            <p className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong className="d-block text-gray-dark">@username</strong>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-              commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
-          </div>
-          <small className="d-block text-right mt-3">
-            <a href="/">All updates</a>
-          </small>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-          <img
-            className="mr-3"
-            src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-            alt=""
-            width="48"
-            height="48"
-          />
-          <div className="lh-100">
-            <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-            <small>Since 2011</small>
-          </div>
-        </div>
-
-        <div className="my-3 p-3 bg-white rounded box-shadow">
-          <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-          <div className="media text-muted pt-3">
-            <img
-              data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-              alt=""
-              className="mr-2 rounded"
-            />
-            <p className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong className="d-block text-gray-dark">@username</strong>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-              commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
-          </div>
-          <small className="d-block text-right mt-3">
-            <a href="/">All updates</a>
-          </small>
         </div>
       </div>
     </div>
