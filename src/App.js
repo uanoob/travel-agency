@@ -7,7 +7,6 @@ import Home from './components/Home';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 
-
 class App extends Component {
   render() {
     return (

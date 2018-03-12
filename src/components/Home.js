@@ -2,20 +2,6 @@ import React from 'react';
 
 const Home = () => (
   <main role="main" className="container">
-    <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-      <img
-        className="mr-3"
-        src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg"
-        alt=""
-        width="48"
-        height="48"
-      />
-      <div className="lh-100">
-        <h6 className="mb-0 text-white lh-100">Bootstrap</h6>
-        <small>Since 2011</small>
-      </div>
-    </div>
-
     <div className="my-3 p-3 bg-white rounded box-shadow">
       <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
       <div className="media text-muted pt-3">
