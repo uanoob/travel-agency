@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import promiseMiddleware from 'redux-promise';
 import thunk from 'redux-thunk';
 
 import axios from 'axios';
@@ -15,7 +16,7 @@ import reducers from './redux/reducers';
 axios.defaults.baseURL = process.env.REACT_APP_API_HOST;
 console.log(axios.defaults.baseURL);
 
-const storeWithMiddleware = applyMiddleware(thunk)(createStore);
+const storeWithMiddleware = applyMiddleware(promiseMiddleware, thunk)(createStore);
 
 ReactDOM.render(
   <Provider store={storeWithMiddleware(reducers)}>
