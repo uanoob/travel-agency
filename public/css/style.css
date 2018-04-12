@@ -1,76 +1,39 @@
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
 html,
-body {
-  overflow-x: hidden; /* Prevent scroll on narrow devices */
-}
+body,
+.view {
+  height: 100%; }
 
-@media (max-width: 767.98px) {
-  .offcanvas-collapse {
-    position: fixed;
-    top: 56px; /* Height of navbar */
-    bottom: 0;
-    width: 100%;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    overflow-y: auto;
-    background-color: var(--gray-dark);
-    transition: -webkit-transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  .offcanvas-collapse.open {
-    -webkit-transform: translateX(-1rem);
-    transform: translateX(-1rem); /* Account for horizontal padding on navbar */
-  }
-}
+@media (max-width: 740px) {
+  .full-page-intro {
+    height: 1000px; } }
 
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
+/* Half Page Carousel itself*/
+.carousel {
+  height: 50%; }
+  .carousel .carousel-inner {
+    height: 100%; }
+    .carousel .carousel-inner .carousel-item,
+    .carousel .carousel-inner .active {
+      height: 100%; }
 
-.nav-scroller .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  color: rgba(255, 255, 255, .75);
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
+/* Adjustment for mobile devices*/
+@media (max-width: 776px) {
+  .carousel {
+    height: 100%; } }
 
-.nav-underline .nav-link {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: .875rem;
-  color: var(--secondary);
-}
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.3); }
 
-.nav-underline .nav-link:hover {
-  color: var(--blue);
-}
+.top-nav-collapse {
+  background-color: #1C2331; }
 
-.nav-underline .active {
-  font-weight: 500;
-  color: var(--gray-dark);
-}
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331; } }
 
-.text-white-50 { color: rgba(255, 255, 255, .5); }
-
-.bg-purple { background-color: var(--purple); }
-
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
-
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
-
-.lh-100 { line-height: 1; }
-.lh-125 { line-height: 1.25; }
-.lh-150 { line-height: 1.5; }
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #1C2331; }

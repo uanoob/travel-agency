@@ -1,87 +1,61 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <div>
-    <nav className="navbar navbar-expand-md navbar-light bg-light mb-4">
-      <a className="navbar-brand" href="/">
-        Travel Agency
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarCollapse"
-        aria-controls="navbarCollapse"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navbarCollapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/gallery">
-              Gallery
-            </Link>
-          </li>
-        </ul>
+    <nav className="navbar fixed-top navbar-expand-lg navbar-dark mdb-color darken-2 scrolling-navbar">
+      <div className="container">
+        <a className="navbar-brand" href="/">
+          <strong>Travel Agency</strong>
+        </a>
+
         <button
+          className="navbar-toggler"
           type="button"
-          className="btn btn-primary"
-          data-toggle="modal"
-          data-target="#signupModal"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          Log In
+          <span className="navbar-toggler-icon" />
         </button>
-      </div>
-    </nav>
-    <div
-      className="modal fade"
-      id="signupModal"
-      tabIndex="-1"
-      role="dialog"
-      aria-labelledby="signupModal"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog modal-dialog-centered" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="signupModalTitle">
-              Log In with:
-            </h5>
-          </div>
-          <div className="modal-body">
-            <div className="text-center">
-              <form className="form-signin">
-                <button type="button" className="btn btn-primary btn-lg btn-block">
-                  <i className="fa fa-facebook pr-1" /> Facebook
-                </button>
-                <button type="button" className="btn btn-secondary btn-lg btn-block">
-                  <i className="fa fa-twitter pr-1" /> Twitter
-                </button>
-                <button type="button" className="btn btn-primary btn-lg btn-block">
-                  <i className="fa fa-google-plus pr-1" /> Google +
-                </button>
-                <button type="button" className="btn btn-secondary btn-lg btn-block">
-                  <i className="fa fa-github pr-1" /> Github
-                </button>
-              </form>
-            </div>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">
-              Close
-            </button>
-          </div>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="/">
+                Home
+                <span className="sr-only">(current)</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Hot Tours
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                About Us
+              </a>
+            </li>
+          </ul>
+
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <a href="/" className="nav-link">
+                Sign Up
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/" className="nav-link">
+                Log In
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
 );
 

@@ -7,12 +7,12 @@ import TourItem from '../widgetsUI/tour_item';
 
 class HomeContainer extends Component {
   componentWillMount() {
-    this.props.dispatch(getTours(2, 0, 'desc'));
+    this.props.dispatch(getTours(3, 0, 'desc'));
   }
 
   loadmore = () => {
     const count = this.props.tours.list.length;
-    this.props.dispatch(getTours(2, count, 'desc', this.props.tours.list));
+    this.props.dispatch(getTours(3, count, 'desc', this.props.tours.list));
   };
 
   renderItems = tours =>
@@ -23,15 +23,16 @@ class HomeContainer extends Component {
 
     return (
       <div>
-        {this.renderItems(this.props.tours)}
+        <div className="row">{this.renderItems(this.props.tours)}</div>
         <div
-          className="loadmore"
+          className="btn btn-primary btn-md mdb-color darken-2"
           role="button"
           tabIndex={0}
           onClick={this.loadmore}
           onKeyPress={this.loadmore}
         >
           Load More
+          <i className="fa fa-play ml-2" />
         </div>
       </div>
     );

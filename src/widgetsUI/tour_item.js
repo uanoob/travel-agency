@@ -5,21 +5,30 @@ const URL = process.env.REACT_APP_API_HOST;
 const TourItem = item => (
   // http://localhost:5000/images/boat.jpg
 
-  <div className="col-md-4">
-    <div className="card mb-4 box-shadow">
-      <img className="card-img-top" src={`${URL}/images/${item.image}`} alt="Card cap" />
-      <div className="card-body">
-        <p className="card-text">{item.description}</p>
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="btn-group">
-            <button type="button" className="btn btn-sm btn-outline-secondary">
-              View
-            </button>
-            <button type="button" className="btn btn-sm btn-outline-secondary">
-              Edit
-            </button>
-          </div>
-          <small className="text-muted">{item.title}</small>
+  <div className="col-lg-4 col-md-12 mb-3">
+    <div className="view overlay z-depth-1-half">
+      <div className="card">
+        <div className="view overlay hm-white-slight">
+          <img src={`${URL}/images/${item.image}`} className="img-fluid" alt="" />
+          <a href="/" target="_blank" rel="noopener noreferrer">
+            <div className="mask rgba-white-light" />
+          </a>
+        </div>
+
+        <div className="card-body">
+          <h5 className="card-title">{item.title}</h5>
+          <div className="card-text">{item.adress}</div>
+          <div className="card-text"> {item.hotel}</div>
+          <div className="card-text">Price: ${item.price}</div>
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary btn-md mdb-color darken-2"
+          >
+            Detail
+            <i className="fa fa-play ml-2" />
+          </a>
         </div>
       </div>
     </div>
