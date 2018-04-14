@@ -1,13 +1,13 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <div>
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark mdb-color darken-2 scrolling-navbar">
       <div className="container">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <strong>Travel Agency</strong>
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -24,10 +24,10 @@ const Navbar = () => (
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Home
                 <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
@@ -43,14 +43,14 @@ const Navbar = () => (
 
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <Link to="/signup" className="nav-link">
                 Sign Up
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <Link to="/login" className="nav-link">
                 Log In
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
