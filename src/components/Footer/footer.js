@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <div>
     <footer className="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
       <div className="pt-4">
-        <a className="btn btn-outline-white" href="/" role="button">
+        <Link className="btn btn-outline-white" to="/contactus" role="button">
           Contact Us
-          <i className="fa fa-download ml-2" />
-        </a>
-        <a className="btn btn-outline-white" href="/" role="button">
+          <i className="fa fa-send ml-2" />
+        </Link>
+        <Link className="btn btn-outline-white" to="/aboutus" role="button">
           About Us
           <i className="fa fa-graduation-cap ml-2" />
-        </a>
+        </Link>
       </div>
 
       <hr className="my-4" />
