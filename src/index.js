@@ -12,8 +12,9 @@ import axios from 'axios';
 
 import Routes from './routes';
 import reducers from './redux/reducers';
+import { BASE_URL } from './config';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_HOST;
+axios.defaults.baseURL = BASE_URL;
 console.log(axios.defaults.baseURL);
 
 const storeWithMiddleware = applyMiddleware(promiseMiddleware, thunk)(createStore);

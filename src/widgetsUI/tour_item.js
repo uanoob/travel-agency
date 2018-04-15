@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const URL = process.env.REACT_APP_API_HOST;
+import { BASE_URL } from '../config';
 
 const TourItem = item => (
   // http://localhost:5000/images/boat.jpg
@@ -9,10 +10,10 @@ const TourItem = item => (
     <div className="view overlay z-depth-1-half">
       <div className="card">
         <div className="view overlay hm-white-slight">
-          <img src={`${URL}/images/${item.image}`} className="img-fluid" alt="" />
-          <a href="/" target="_blank" rel="noopener noreferrer">
+          <img src={`${BASE_URL}/images/${item.image}`} className="img-fluid" alt="" />
+          <Link to={`/tours/${item._id}`}>
             <div className="mask rgba-white-light" />
-          </a>
+          </Link>
         </div>
 
         <div className="card-body">
@@ -20,15 +21,10 @@ const TourItem = item => (
           <div className="card-text">{item.adress}</div>
           <div className="card-text"> {item.hotel}</div>
           <div className="card-text">Price: ${item.price}</div>
-          <a
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-md mdb-color darken-2"
-          >
+          <Link to={`/tours/${item._id}`} className="btn btn-primary btn-md mdb-color darken-2">
             Detail
             <i className="fa fa-play ml-2" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
