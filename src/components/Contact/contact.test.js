@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './layout';
+import Contact from './contact';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Layout />, div);
+  ReactDOM.render(<Contact />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
