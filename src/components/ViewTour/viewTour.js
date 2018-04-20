@@ -5,7 +5,7 @@ import MDSpinner from 'react-md-spinner';
 import { getTour } from '../../redux/actions';
 import { BASE_URL } from '../../config';
 
-class TourView extends Component {
+class ViewTour extends Component {
   componentWillMount() {
     this.props.dispatch(getTour(this.props.match.params.id));
   }
@@ -68,4 +68,4 @@ const mapStateToProps = state => ({
   tours: state.tours,
 });
 
-export default connect(mapStateToProps)(TourView);
+export default connect(mapStateToProps)(ViewTour);

@@ -30,9 +30,9 @@ const Navbar = () => (
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                Hot Tours
-              </a>
+              <Link className="nav-link" to="/add">
+                Add Tours
+              </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/aboutus">

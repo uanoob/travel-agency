@@ -1,4 +1,4 @@
-import { GET_TOUR, GET_TOURS } from '../actions/types';
+import { GET_TOUR, GET_TOURS, ADD_TOUR, CLEAR_NEW_TOUR } from '../actions/types';
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -6,6 +6,10 @@ export default function (state = {}, action) {
       return { ...state, list: action.payload };
     case GET_TOUR:
       return { ...state, tour: action.payload };
+    case ADD_TOUR:
+      return { ...state, newtour: action.payload };
+    case CLEAR_NEW_TOUR:
+      return { ...state, newtour: action.payload };
     default:
       return state;
   }

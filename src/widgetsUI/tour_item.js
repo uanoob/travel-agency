@@ -20,6 +20,7 @@ const TourItem = item => (
           <h5 className="card-title">{item.title}</h5>
           <div className="card-text">{item.adress}</div>
           <div className="card-text"> {item.hotel}</div>
+          <div className="card-text">Rating: {item.rating}</div>
           <div className="card-text">Price: ${item.price}</div>
           <Link to={`/tours/${item._id}`} className="btn btn-primary btn-md mdb-color darken-2">
             Detail

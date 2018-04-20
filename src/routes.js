@@ -7,7 +7,8 @@ import Login from './components/Login/login';
 import SignUp from './components/Signup/signup';
 import ContactUs from './components/Contact/contact';
 import AboutUs from './components/About/about';
-import TourView from './components/Tourview/tourView';
+import ViewTour from './components/ViewTour/viewTour';
+import AddTour from './containers/Admin/addTour';
 
 
 const Routes = () => (
@@ -15,7 +16,8 @@ const Routes = () => (
     <Layout>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/tours/:id" exact component={TourView} />
+        <Route path="/tours/:id" exact component={ViewTour} />
+        <Route path="/add" exact component={AddTour} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/contactus" exact component={ContactUs} />
