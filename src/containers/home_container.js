@@ -19,8 +19,6 @@ class HomeContainer extends Component {
     (tours.list ? tours.list.map(item => <TourItem {...item} key={item._id} />) : null);
 
   render() {
-    console.log(this.props);
-
     return (
       <div>
         <div className="row">{this.renderItems(this.props.tours)}</div>

@@ -1,6 +1,14 @@
 import axios from 'axios';
 
-import { GET_TOURS, GET_TOUR, ADD_TOUR, CLEAR_NEW_TOUR } from './types';
+import {
+  GET_TOURS,
+  GET_TOUR,
+  ADD_TOUR,
+  CLEAR_NEW_TOUR,
+  UPDATE_TOUR,
+  DELETE_TOUR,
+  CLEAR_TOUR,
+} from './types';
 
 export const getTours = (limit = 5, start = 0, order = 'asc', list = '') => {
   const request = axios
@@ -37,4 +45,29 @@ export const addTour = (tour) => {
 export const clearNewTour = () => ({
   type: CLEAR_NEW_TOUR,
   payload: {},
+});
+
+export const updateTour = (data) => {
+  const request = axios.post('/api/tour_update', data).then(response => response.data);
+  return {
+    type: UPDATE_TOUR,
+    payload: request,
+  };
+};
+
+export const deleteTour = (id) => {
+  const request = axios.delete(`/api/tour_delete?id=${id}`).then(response => response.data);
+  return {
+    type: DELETE_TOUR,
+    payload: request,
+  };
+};
+
+export const clearTour = () => ({
+  type: CLEAR_TOUR,
+  payload: {
+    tour: null,
+    updatetour: false,
+    postdeleted: false,
+  },
 });

@@ -1,4 +1,12 @@
-import { GET_TOUR, GET_TOURS, ADD_TOUR, CLEAR_NEW_TOUR } from '../actions/types';
+import {
+  GET_TOUR,
+  GET_TOURS,
+  ADD_TOUR,
+  CLEAR_NEW_TOUR,
+  UPDATE_TOUR,
+  DELETE_TOUR,
+  CLEAR_TOUR,
+} from '../actions/types';
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -10,6 +18,24 @@ export default function (state = {}, action) {
       return { ...state, newtour: action.payload };
     case CLEAR_NEW_TOUR:
       return { ...state, newtour: action.payload };
+    case UPDATE_TOUR:
+      return {
+        ...state,
+        updatetour: action.payload.success,
+        tour: action.payload.doc,
+      };
+    case DELETE_TOUR:
+      return {
+        ...state,
+        postdeleted: action.payload,
+      };
+    case CLEAR_TOUR:
+      return {
+        ...state,
+        updatetour: action.payload.updatetour,
+        tour: action.payload.tour,
+        postdeleted: action.payload.postdeleted,
+      };
     default:
       return state;
   }

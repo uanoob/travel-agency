@@ -63,70 +63,70 @@ class AddTour extends Component {
                       type="text"
                       id="form-title"
                       className="form-control"
+                      placeholder="Title"
                       value={this.state.formdata.title}
                       onChange={event => this.handleInput(event, 'title')}
                     />
-                    <label htmlFor="form-title">Title</label>
                   </div>
                   <div className="md-form">
                     <input
                       type="text"
                       id="form-hotel"
                       className="form-control"
+                      placeholder="Hotel"
                       value={this.state.formdata.hotel}
                       onChange={event => this.handleInput(event, 'hotel')}
                     />
-                    <label htmlFor="form-hotel">Hotel</label>
                   </div>
                   <div className="md-form">
                     <input
                       type="text"
                       id="form-address"
                       className="form-control"
+                      placeholder="Address"
                       value={this.state.formdata.address}
                       onChange={event => this.handleInput(event, 'address')}
                     />
-                    <label htmlFor="form-address">Address</label>
                   </div>
                   <div className="md-form">
                     <input
                       type="number"
                       id="form-rating"
                       className="form-control"
+                      placeholder="Rating"
                       value={this.state.formdata.rating}
                       onChange={event => this.handleInput(event, 'rating')}
                     />
-                    <label htmlFor="form-rating">Rating</label>
                   </div>
                   <div className="md-form">
                     <input
                       type="text"
                       id="form-image"
                       className="form-control"
+                      placeholder="Image"
                       value={this.state.formdata.image}
                       onChange={event => this.handleInput(event, 'image')}
                     />
-                    <label htmlFor="form-image">Image</label>
                   </div>
                   <div className="md-form">
                     <input
                       type="number"
                       id="form-price"
                       className="form-control"
+                      placeholder="Price"
                       value={this.state.formdata.price}
                       onChange={event => this.handleInput(event, 'price')}
                     />
-                    <label htmlFor="form-price">Price</label>
                   </div>
                   <div className="md-form">
                     <input
                       type="text"
                       id="form-review"
                       className="form-control"
+                      placeholder="Reviews"
                       value={this.state.formdata.reviews}
                       onChange={event => this.handleInput(event, 'reviews')}
                     />
-                    <label htmlFor="form-reviews">Reviews</label>
                   </div>
 
                   <div className="md-form">
@@ -134,17 +134,14 @@ class AddTour extends Component {
                       type="text"
                       id="form-description"
                       className="form-control"
+                      placeholder="Description"
                       rows="3"
                       value={this.state.formdata.description}
                       onChange={event => this.handleInput(event, 'description')}
                     />
-                    <label htmlFor="form-description">Description</label>
                   </div>
                   <div className="text-center mb-3">
-                    <button
-                      type="submit"
-                      className="btn blue-gradient btn-block btn-rounded z-depth-1a"
-                    >
+                    <button type="submit" className="btn success-color btn-rounded z-depth-1a">
                       Add Tour
                       <i className="fa fa-paper-plane-o ml-2" />
                     </button>

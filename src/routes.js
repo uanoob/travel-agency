@@ -9,6 +9,7 @@ import ContactUs from './components/Contact/contact';
 import AboutUs from './components/About/about';
 import ViewTour from './components/ViewTour/viewTour';
 import AddTour from './containers/Admin/addTour';
+import EditTour from './containers/Admin/editTour';
 
 
 const Routes = () => (
@@ -18,6 +19,7 @@ const Routes = () => (
         <Route path="/" exact component={Home} />
         <Route path="/tours/:id" exact component={ViewTour} />
         <Route path="/add" exact component={AddTour} />
+        <Route path="/edit/:id" exact component={EditTour} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/contactus" exact component={ContactUs} />

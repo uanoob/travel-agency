@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MDSpinner from 'react-md-spinner';
 
@@ -50,6 +51,9 @@ class ViewTour extends Component {
               {tours.tour.reviews}
             </div>
           </div>
+          <Link to={`/edit/${tours.tour._id}`}>
+            <button className="btn warning-color btn-rounded z-depth-1a">Edit tour</button>
+          </Link>
         </div>
       </section>
     ) : (
