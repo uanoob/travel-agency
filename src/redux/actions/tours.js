@@ -8,6 +8,7 @@ import {
   UPDATE_TOUR,
   DELETE_TOUR,
   CLEAR_TOUR,
+  UPLOAD_FILE,
 } from './types';
 
 export const getTours = (limit = 5, start = 0, order = 'asc', list = '') => {
@@ -71,3 +72,13 @@ export const clearTour = () => ({
     postdeleted: false,
   },
 });
+
+export const uploadFile = (data) => {
+  const formdata = new FormData();
+  formdata.append('file', data);
+  const request = axios.post('/api/upload', formdata).then(response => response.data);
+  return {
+    type: UPLOAD_FILE,
+    payload: request,
+  };
+};

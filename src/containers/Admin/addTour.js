@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addTour, clearNewTour } from '../../redux/actions';
+import { addTour, clearNewTour, uploadFile } from '../../redux/actions';
 
 class AddTour extends Component {
   state = {
@@ -16,6 +16,7 @@ class AddTour extends Component {
       reviews: '',
       description: '',
     },
+    selectedFile: null,
   };
 
   componentWillUnmount() {
@@ -35,6 +36,7 @@ class AddTour extends Component {
     this.props.dispatch(addTour({
       ...this.state.formdata,
     }));
+    this.props.dispatch(uploadFile(this.state.selectedFile));
   };
 
   showNewTour = tour =>
@@ -43,6 +45,17 @@ class AddTour extends Component {
         Cool! <Link to={`/tours/${tour.tourId}`}>New tour is Here!</Link>
       </button>
     ) : null);
+
+  fileSelectedHandler = (event) => {
+    if (event.target.files[0]) {
+      const newState = { ...this.state };
+      newState.selectedFile = event.target.files[0];
+      newState.formdata.image = event.target.files[0].name;
+      this.setState({
+        ...newState,
+      });
+    }
+  };
 
   render() {
     return (
@@ -100,16 +113,6 @@ class AddTour extends Component {
                   </div>
                   <div className="md-form">
                     <input
-                      type="text"
-                      id="form-image"
-                      className="form-control"
-                      placeholder="Image"
-                      value={this.state.formdata.image}
-                      onChange={event => this.handleInput(event, 'image')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
                       type="number"
                       id="form-price"
                       className="form-control"
@@ -140,10 +143,22 @@ class AddTour extends Component {
                       onChange={event => this.handleInput(event, 'description')}
                     />
                   </div>
+
+                  <div className="md-form">
+                    <div className="">
+                      <div className="btn btn-mdb-color btn-block btn-rounded z-depth-1a">
+                        <input
+                          type="file"
+                          id="form-image"
+                          onChange={event => this.fileSelectedHandler(event)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="text-center mb-3">
                     <button type="submit" className="btn success-color btn-rounded z-depth-1a">
                       Add Tour
-                      <i className="fa fa-paper-plane-o ml-2" />
                     </button>
                   </div>
                   {this.props.tours.newtour ? this.showNewTour(this.props.tours.newtour) : null}

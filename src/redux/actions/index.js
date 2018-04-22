@@ -6,6 +6,7 @@ export {
   updateTour,
   deleteTour,
   clearTour,
+  uploadFile,
 } from './tours';
 
 export { getUsers, loginWithGoogle } from './users';
