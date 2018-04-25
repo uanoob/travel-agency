@@ -19,38 +19,21 @@ class ViewTour extends Component {
         <div className="col-lg-12 col-md-12">
           <div className="view overlay rounded z-depth-1-half mb-3">
             <img
-              src={`${BASE_URL}/images/${tours.tour.image}`}
+              src={`${BASE_URL}/${tours.tour.tourImage}`}
               className="img-fluid"
               alt="Sample post"
             />
           </div>
 
           <div className="news-data">
-            <div className="light-blue-text">
-              <h6>
-                <i className="fa fa-plane" />
-                <strong>{tours.tour.address}</strong>
-              </h6>
-            </div>
             <p>
               <strong>${tours.tour.price}</strong>
             </p>
           </div>
-          <h3>
-            <strong>{tours.tour.hotel}</strong>
-          </h3>
           <p> {tours.tour.description}</p>
 
           <hr />
 
-          <div className="row">
-            <div className="col-md-9">
-              <p className="dark-grey-text">
-                <strong>Comments:</strong>
-              </p>
-              {tours.tour.reviews}
-            </div>
-          </div>
           <Link to={`/edit/${tours.tour._id}`}>
             <button className="btn warning-color btn-rounded z-depth-1a">Edit tour</button>
           </Link>

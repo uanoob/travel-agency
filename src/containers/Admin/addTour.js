@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addTour, clearNewTour, uploadFile } from '../../redux/actions';
+import { addTour, clearNewTour } from '../../redux/actions';
 
 class AddTour extends Component {
   state = {
     formdata: {
       title: '',
-      hotel: '',
-      address: '',
-      rating: '',
-      image: '',
+      tourImage: '',
       price: '',
-      reviews: '',
       description: '',
     },
     selectedFile: null,
@@ -33,10 +29,12 @@ class AddTour extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    this.props.dispatch(addTour({
-      ...this.state.formdata,
-    }));
-    this.props.dispatch(uploadFile(this.state.selectedFile));
+    const formdata = new FormData();
+    formdata.append('title', this.state.formdata.title);
+    formdata.append('price', this.state.formdata.price);
+    formdata.append('description', this.state.formdata.description);
+    formdata.append('tourImage', this.state.selectedFile);
+    this.props.dispatch(addTour(formdata));
   };
 
   showNewTour = tour =>
@@ -50,7 +48,6 @@ class AddTour extends Component {
     if (event.target.files[0]) {
       const newState = { ...this.state };
       newState.selectedFile = event.target.files[0];
-      newState.formdata.image = event.target.files[0].name;
       this.setState({
         ...newState,
       });
@@ -83,52 +80,12 @@ class AddTour extends Component {
                   </div>
                   <div className="md-form">
                     <input
-                      type="text"
-                      id="form-hotel"
-                      className="form-control"
-                      placeholder="Hotel"
-                      value={this.state.formdata.hotel}
-                      onChange={event => this.handleInput(event, 'hotel')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="text"
-                      id="form-address"
-                      className="form-control"
-                      placeholder="Address"
-                      value={this.state.formdata.address}
-                      onChange={event => this.handleInput(event, 'address')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="number"
-                      id="form-rating"
-                      className="form-control"
-                      placeholder="Rating"
-                      value={this.state.formdata.rating}
-                      onChange={event => this.handleInput(event, 'rating')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
                       type="number"
                       id="form-price"
                       className="form-control"
                       placeholder="Price"
                       value={this.state.formdata.price}
                       onChange={event => this.handleInput(event, 'price')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="text"
-                      id="form-review"
-                      className="form-control"
-                      placeholder="Reviews"
-                      value={this.state.formdata.reviews}
-                      onChange={event => this.handleInput(event, 'reviews')}
                     />
                   </div>
 

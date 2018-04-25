@@ -6,7 +6,6 @@ import {
   UPDATE_TOUR,
   DELETE_TOUR,
   CLEAR_TOUR,
-  UPLOAD_FILE,
 } from '../actions/types';
 
 export default function (state = {}, action) {
@@ -28,19 +27,14 @@ export default function (state = {}, action) {
     case DELETE_TOUR:
       return {
         ...state,
-        postdeleted: action.payload,
+        tourdeleted: action.payload,
       };
     case CLEAR_TOUR:
       return {
         ...state,
         updatetour: action.payload.updatetour,
         tour: action.payload.tour,
-        postdeleted: action.payload.postdeleted,
-      };
-    case UPLOAD_FILE:
-      return {
-        ...state,
-        uploadfile: action.payload.file,
+        tourdeleted: action.payload.tourdeleted,
       };
     default:
       return state;

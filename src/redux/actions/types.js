@@ -5,7 +5,6 @@ export const CLEAR_NEW_TOUR = 'clear_new_tour';
 export const UPDATE_TOUR = 'update_tour';
 export const DELETE_TOUR = 'delete_tour';
 export const CLEAR_TOUR = 'clear_tour';
-export const UPLOAD_FILE = 'upload_file';
 
 export const GET_USERS = 'get_users';
 export const LOGIN_WITH_GOOGLE = 'login_with_google';

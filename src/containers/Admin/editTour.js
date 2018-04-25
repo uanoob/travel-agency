@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { BASE_URL } from '../../config';
+
 import { getTour, updateTour, deleteTour, clearTour } from '../../redux/actions';
 
 class EditTour extends Component {
@@ -9,14 +11,12 @@ class EditTour extends Component {
     formdata: {
       _id: this.props.match.params.id,
       title: '',
-      hotel: '',
-      address: '',
-      rating: '',
-      image: '',
+      tourImage: '',
       price: '',
-      reviews: '',
       description: '',
     },
+    selectedFile: null,
+    imageUrl: '',
   };
 
   componentWillMount() {
@@ -29,12 +29,8 @@ class EditTour extends Component {
       formdata: {
         _id: tour._id,
         title: tour.title,
-        hotel: tour.hotel,
-        address: tour.address,
-        rating: tour.rating,
-        image: tour.image,
+        tourImage: tour.tourImage,
         price: tour.price,
-        reviews: tour.reviews,
         description: tour.description,
       },
     });
@@ -54,7 +50,40 @@ class EditTour extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    this.props.dispatch(updateTour(this.state.formdata));
+
+    const formdata = new FormData();
+    const id = this.state.formdata._id;
+    const file = this.state.selectedFile || this.state.formdata.tourImage;
+    formdata.append('title', this.state.formdata.title);
+    formdata.append('price', this.state.formdata.price);
+    formdata.append('description', this.state.formdata.description);
+    formdata.append('tourImage', file);
+    this.props.dispatch(updateTour(id, formdata));
+  };
+
+  fileSelectedHandler = (event) => {
+    if (event.target.files[0]) {
+      this.filePreviewHandler(event.target.files[0]);
+      const newState = { ...this.state };
+      newState.selectedFile = event.target.files[0];
+      this.setState({
+        ...newState,
+      });
+    }
+  };
+
+  filePreviewHandler = (file) => {
+    const reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        const newState = { ...this.state };
+        newState.imageUrl = reader.result;
+        this.setState({
+          ...newState,
+        });
+      };
+    }
   };
 
   deleteTour = () => {
@@ -66,6 +95,25 @@ class EditTour extends Component {
       this.props.history.push('/');
     }, 2000);
   };
+
+  renderImageHandler = imageUrl =>
+    (!imageUrl ? (
+      <div className="col-lg-12 col-md-12">
+        <div className="view overlay rounded z-depth-1-half mb-3">
+          <img
+            src={`${BASE_URL}/${this.state.formdata.tourImage}`}
+            className="img-fluid"
+            alt="Sample post"
+          />
+        </div>
+      </div>
+    ) : (
+      <div className="col-lg-12 col-md-12">
+        <div className="view overlay rounded z-depth-1-half mb-3">
+          <img src={this.state.imageUrl} className="img-fluid" alt="Sample post" />
+        </div>
+      </div>
+    ));
 
   render() {
     const tours = this.props.tours;
@@ -92,46 +140,7 @@ class EditTour extends Component {
                       onChange={event => this.handleInput(event, 'title')}
                     />
                   </div>
-                  <div className="md-form">
-                    <input
-                      type="text"
-                      id="form-hotel"
-                      className="form-control"
-                      placeholder="Hotel"
-                      value={this.state.formdata.hotel}
-                      onChange={event => this.handleInput(event, 'hotel')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="text"
-                      id="form-address"
-                      className="form-control"
-                      placeholder="Address"
-                      value={this.state.formdata.address}
-                      onChange={event => this.handleInput(event, 'address')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="number"
-                      id="form-rating"
-                      className="form-control"
-                      placeholder="Rating"
-                      value={this.state.formdata.rating}
-                      onChange={event => this.handleInput(event, 'rating')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="text"
-                      id="form-image"
-                      className="form-control"
-                      placeholder="Image"
-                      value={this.state.formdata.image}
-                      onChange={event => this.handleInput(event, 'image')}
-                    />
-                  </div>
+
                   <div className="md-form">
                     <input
                       type="number"
@@ -140,16 +149,6 @@ class EditTour extends Component {
                       placeholder="Price"
                       value={this.state.formdata.price}
                       onChange={event => this.handleInput(event, 'price')}
-                    />
-                  </div>
-                  <div className="md-form">
-                    <input
-                      type="text"
-                      id="form-review"
-                      className="form-control"
-                      placeholder="Reviews"
-                      value={this.state.formdata.reviews}
-                      onChange={event => this.handleInput(event, 'reviews')}
                     />
                   </div>
 
@@ -164,20 +163,39 @@ class EditTour extends Component {
                       onChange={event => this.handleInput(event, 'description')}
                     />
                   </div>
+
+                  {this.state.formdata.tourImage
+                    ? this.renderImageHandler(this.state.imageUrl)
+                    : null}
+
+                  <div className="md-form">
+                    <div className="">
+                      <div className="btn btn-mdb-color btn-block btn-rounded z-depth-1a">
+                        <input
+                          type="file"
+                          id="form-image"
+                          onChange={event => this.fileSelectedHandler(event)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="text-center mb-3">
                     <button type="submit" className="btn success-color btn-rounded z-depth-1a">
                       Save Tour
                       <i className="fa fa-paper-plane-o ml-2" />
                     </button>
-                    <button
-                      className="btn danger-color btn-rounded z-depth-1a"
-                      onClick={this.deleteTour}
-                      onKeyPress={this.deleteTour}
-                    >
-                      Delete tour
-                    </button>
                   </div>
                 </form>
+
+                <div className="text-center mb-3">
+                  <button
+                    className="btn danger-color btn-rounded z-depth-1a"
+                    onClick={this.deleteTour}
+                  >
+                    Delete tour
+                  </button>
+                </div>
 
                 {tours.updatetour ? (
                   <div className="text-center mb-3">
@@ -191,7 +209,7 @@ class EditTour extends Component {
                     </Link>
                   </div>
                 ) : null}
-                {tours.postdeleted ? (
+                {tours.tourdeleted ? (
                   <div className="text-center mb-3 text-danger">
                     Tour deleted
                     {this.redirectUser()}
