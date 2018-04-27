@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import MDSpinner from 'react-md-spinner';
 
 import { getTour } from '../../redux/actions';
-import { BASE_URL } from '../../config';
 
 class ViewTour extends Component {
   componentWillMount() {
@@ -18,11 +17,7 @@ class ViewTour extends Component {
 
         <div className="col-lg-12 col-md-12">
           <div className="view overlay rounded z-depth-1-half mb-3">
-            <img
-              src={`${BASE_URL}/${tours.tour.tourImage}`}
-              className="img-fluid"
-              alt="Sample post"
-            />
+            <img src={tours.tour.image.path} className="img-fluid" alt="Sample post" />
           </div>
 
           <div className="news-data">

@@ -8,11 +8,15 @@ class AddTour extends Component {
   state = {
     formdata: {
       title: '',
-      tourImage: '',
+      image: {
+        key: '',
+        path: '',
+      },
       price: '',
       description: '',
     },
     selectedFile: null,
+    previewFile: null,
   };
 
   componentWillUnmount() {
@@ -30,10 +34,12 @@ class AddTour extends Component {
   submitForm = (e) => {
     e.preventDefault();
     const formdata = new FormData();
+    if (this.state.selectedFile) {
+      formdata.append('file', this.state.selectedFile);
+    }
     formdata.append('title', this.state.formdata.title);
     formdata.append('price', this.state.formdata.price);
     formdata.append('description', this.state.formdata.description);
-    formdata.append('tourImage', this.state.selectedFile);
     this.props.dispatch(addTour(formdata));
   };
 
@@ -46,6 +52,7 @@ class AddTour extends Component {
 
   fileSelectedHandler = (event) => {
     if (event.target.files[0]) {
+      this.filePreviewHandler(event.target.files[0]);
       const newState = { ...this.state };
       newState.selectedFile = event.target.files[0];
       this.setState({
@@ -53,6 +60,28 @@ class AddTour extends Component {
       });
     }
   };
+
+  filePreviewHandler = (file) => {
+    const reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        const newState = { ...this.state };
+        newState.previewFile = reader.result;
+        this.setState({
+          ...newState,
+        });
+      };
+    }
+  };
+
+  renderImageHandler = () => (
+    <div className="col-lg-12 col-md-12">
+      <div className="view overlay rounded z-depth-1-half mb-3">
+        <img src={this.state.previewFile} className="img-fluid" alt="Sample post" />
+      </div>
+    </div>
+  );
 
   render() {
     return (
@@ -100,6 +129,8 @@ class AddTour extends Component {
                       onChange={event => this.handleInput(event, 'description')}
                     />
                   </div>
+
+                  {this.state.previewFile ? this.renderImageHandler() : null}
 
                   <div className="md-form">
                     <div className="">

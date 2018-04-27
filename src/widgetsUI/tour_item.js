@@ -1,16 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { BASE_URL } from '../config';
-
 const TourItem = item => (
-  // http://localhost:5000/public/images/boat.jpg
-
   <div className="col-lg-4 col-md-12 mb-3">
     <div className="view overlay z-depth-1-half">
       <div className="card">
         <div className="view overlay hm-white-slight">
-          <img src={`${BASE_URL}/${item.tourImage}`} className="img-fluid" alt="" />
+          <img src={item.image.path} className="img-fluid" alt="" />
           <Link to={`/tours/${item._id}`}>
             <div className="mask rgba-white-light" />
           </Link>

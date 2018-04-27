@@ -15,7 +15,7 @@ import reducers from './redux/reducers';
 import { BASE_URL } from './config';
 
 axios.defaults.baseURL = BASE_URL;
-console.log('BASE_URL: ', axios.defaults.baseURL);
+// console.log('BASE_URL: ', axios.defaults.baseURL);
 
 const storeWithMiddleware = applyMiddleware(promiseMiddleware, thunk)(createStore);
 

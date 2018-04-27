@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { BASE_URL } from '../../config';
-
 import { getTour, updateTour, deleteTour, clearTour } from '../../redux/actions';
 
 class EditTour extends Component {
@@ -11,12 +9,15 @@ class EditTour extends Component {
     formdata: {
       _id: this.props.match.params.id,
       title: '',
-      tourImage: '',
+      image: {
+        key: '',
+        path: '',
+      },
       price: '',
       description: '',
     },
     selectedFile: null,
-    imageUrl: '',
+    previewFile: null,
   };
 
   componentWillMount() {
@@ -29,7 +30,7 @@ class EditTour extends Component {
       formdata: {
         _id: tour._id,
         title: tour.title,
-        tourImage: tour.tourImage,
+        image: tour.image,
         price: tour.price,
         description: tour.description,
       },
@@ -53,11 +54,12 @@ class EditTour extends Component {
 
     const formdata = new FormData();
     const id = this.state.formdata._id;
-    const file = this.state.selectedFile || this.state.formdata.tourImage;
+    if (this.state.selectedFile) {
+      formdata.append('file', this.state.selectedFile);
+    }
     formdata.append('title', this.state.formdata.title);
     formdata.append('price', this.state.formdata.price);
     formdata.append('description', this.state.formdata.description);
-    formdata.append('tourImage', file);
     this.props.dispatch(updateTour(id, formdata));
   };
 
@@ -78,7 +80,7 @@ class EditTour extends Component {
       reader.readAsDataURL(file);
       reader.onloadend = () => {
         const newState = { ...this.state };
-        newState.imageUrl = reader.result;
+        newState.previewFile = reader.result;
         this.setState({
           ...newState,
         });
@@ -96,21 +98,17 @@ class EditTour extends Component {
     }, 2000);
   };
 
-  renderImageHandler = imageUrl =>
-    (!imageUrl ? (
+  renderImageHandler = previewFile =>
+    (!previewFile ? (
       <div className="col-lg-12 col-md-12">
         <div className="view overlay rounded z-depth-1-half mb-3">
-          <img
-            src={`${BASE_URL}/${this.state.formdata.tourImage}`}
-            className="img-fluid"
-            alt="Sample post"
-          />
+          <img src={this.state.formdata.image.path} className="img-fluid" alt="Sample post" />
         </div>
       </div>
     ) : (
       <div className="col-lg-12 col-md-12">
         <div className="view overlay rounded z-depth-1-half mb-3">
-          <img src={this.state.imageUrl} className="img-fluid" alt="Sample post" />
+          <img src={this.state.previewFile} className="img-fluid" alt="Sample post" />
         </div>
       </div>
     ));
@@ -164,8 +162,8 @@ class EditTour extends Component {
                     />
                   </div>
 
-                  {this.state.formdata.tourImage
-                    ? this.renderImageHandler(this.state.imageUrl)
+                  {this.state.formdata.image.path
+                    ? this.renderImageHandler(this.state.previewFile)
                     : null}
 
                   <div className="md-form">
