@@ -8,4 +8,4 @@ export {
   clearTour,
 } from './tours';
 
-export { getUsers, loginWithGoogle } from './users';
+export { getUsers, userRegister, loginUser, auth } from './users';

@@ -10,9 +10,14 @@ import {
   CLEAR_TOUR,
 } from './types';
 
+import { BASE_URL } from '../../config';
+
+axios.defaults.baseURL = BASE_URL;
+// console.log('BASE_URL: ', axios.defaults.baseURL);
+
 export const getTours = (limit = 5, start = 0, order = 'asc', list = '') => {
   const request = axios
-    .get(`/tours?limit=${limit}&skip=${start}&order=${order}`)
+    .get(`/api/tours?limit=${limit}&skip=${start}&order=${order}`)
     .then((response) => {
       if (list) {
         return [...list, ...response.data];
@@ -27,7 +32,7 @@ export const getTours = (limit = 5, start = 0, order = 'asc', list = '') => {
 };
 
 export const getTour = (id) => {
-  const request = axios(`/tours/${id}`).then(response => response.data);
+  const request = axios.get(`/api/tours/${id}`).then(response => response.data);
   return {
     type: GET_TOUR,
     payload: request,
@@ -35,7 +40,7 @@ export const getTour = (id) => {
 };
 
 export const addTour = (data) => {
-  const request = axios.post('/tours/', data).then(response => response.data);
+  const request = axios.post('/api/tours/', data).then(response => response.data);
   return {
     type: ADD_TOUR,
     payload: request,
@@ -48,7 +53,7 @@ export const clearNewTour = () => ({
 });
 
 export const updateTour = (id, data) => {
-  const request = axios.post(`/tours/${id}`, data).then(response => response.data);
+  const request = axios.post(`/api/tours/${id}`, data).then(response => response.data);
   return {
     type: UPDATE_TOUR,
     payload: request,
@@ -56,7 +61,7 @@ export const updateTour = (id, data) => {
 };
 
 export const deleteTour = (id) => {
-  const request = axios.delete(`/tours/${id}`).then(response => response.data);
+  const request = axios.delete(`/api/tours/${id}`).then(response => response.data);
   return {
     type: DELETE_TOUR,
     payload: request,

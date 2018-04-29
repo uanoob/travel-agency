@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { loginWithGoogle } from '../../redux/actions';
+import { loginUser } from '../../redux/actions';
 
 class Login extends Component {
   state = {
@@ -12,21 +12,34 @@ class Login extends Component {
     success: false,
   };
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.user.login.isAuth) {
-  //     this.props.history.push('/user');
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.login.isAuth) {
+      this.props.history.push('/profile');
+    }
+  }
 
-  handleWithGoogle = () => {
-    this.props.dispatch(loginWithGoogle());
+  handleInputEmail = (event) => {
+    this.setState({
+      email: event.target.value,
+    });
+  };
+
+  handleInputPassword = (event) => {
+    this.setState({
+      password: event.target.value,
+    });
+  };
+
+  submitForm = (e) => {
+    e.preventDefault();
+    this.props.dispatch(loginUser(this.state));
   };
 
   render() {
-    console.log(this.props);
+    console.log('this.state: ', this.state);
     return (
       <div className="container">
-        <section className="form-elegant">
+        <form className="form-elegant" onSubmit={this.submitForm}>
           <div className="card">
             <div className="card-body mx-4">
               <div className="text-center">
@@ -36,13 +49,25 @@ class Login extends Component {
               </div>
 
               <div className="md-form">
-                <input type="text" id="Form-email1" className="form-control" />
-                <label htmlFor="Form-email1">Your email</label>
+                <input
+                  type="email"
+                  id="Form-email"
+                  className="form-control"
+                  value={this.state.email}
+                  onChange={this.handleInputEmail}
+                />
+                <label htmlFor="Form-email">Your email</label>
               </div>
 
               <div className="md-form pb-3">
-                <input type="password" id="Form-pass1" className="form-control" />
-                <label htmlFor="Form-pass1">Your password</label>
+                <input
+                  type="password"
+                  id="Form-password"
+                  className="form-control"
+                  value={this.state.password}
+                  onChange={this.handleInputPassword}
+                />
+                <label htmlFor="Form-password">Your password</label>
                 <p className="font-small blue-text d-flex justify-content-end">
                   Forgot{' '}
                   <a href="/" className="blue-text ml-1">
@@ -54,11 +79,12 @@ class Login extends Component {
 
               <div className="text-center mb-3">
                 <button
-                  type="button"
+                  type="submit"
                   className="btn blue-gradient btn-block btn-rounded z-depth-1a"
                 >
                   Log In
                 </button>
+
               </div>
               <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
                 {' '}
@@ -85,19 +111,23 @@ class Login extends Component {
             <div className="modal-footer mx-5 pt-3 mb-1">
               <p className="font-small grey-text d-flex justify-content-end">
                 Not a member?{' '}
-                <Link to="/signup" className="blue-text ml-1">
+                <Link to="/register" className="blue-text ml-1">
                   {' '}
-                  Sign Up
+                  Register
                 </Link>
               </p>
             </div>
           </div>
-        </section>
+        </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ user: state.user });
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  };
+}
 
 export default connect(mapStateToProps)(Login);
