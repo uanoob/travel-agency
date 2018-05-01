@@ -22,7 +22,7 @@ const Routes = () => (
         <Route path="/tours/:id" exact component={Auth(ViewTour, null)} />
         <Route path="/add" exact component={Auth(Add, true)} />
         <Route path="/edit/:id" exact component={Auth(Edit, true)} />
-        <Route path="/register" exact component={Auth(Register, true)} />
+        <Route path="/register" exact component={Auth(Register, null)} />
         <Route path="/login" exact component={Auth(Login, false)} />
         <Route path="/profile" exact component={Auth(Profile, true)} />
         <Route path="/logout" exact component={Auth(Logout, true)} />
