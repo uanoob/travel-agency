@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Layout from './hoc/layout';
-// import Auth from './hoc/auth';
+import Auth from './hoc/auth';
 import Home from './components/Home/home';
 import Login from './containers/Admin/login';
 import Register from './containers/Admin/register';
@@ -18,16 +18,16 @@ const Routes = () => (
   <div>
     <Layout>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/tours/:id" exact component={ViewTour} />
-        <Route path="/add" exact component={Add} />
-        <Route path="/edit/:id" exact component={Edit} />
-        <Route path="/register" exact component={Register} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/profile" exact component={Profile} />
-        <Route path="/logout" exact component={Logout} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/about" exact component={About} />
+        <Route path="/" exact component={Auth(Home, null)} />
+        <Route path="/tours/:id" exact component={Auth(ViewTour, null)} />
+        <Route path="/add" exact component={Auth(Add, true)} />
+        <Route path="/edit/:id" exact component={Auth(Edit, true)} />
+        <Route path="/register" exact component={Auth(Register, true)} />
+        <Route path="/login" exact component={Auth(Login, false)} />
+        <Route path="/profile" exact component={Auth(Profile, true)} />
+        <Route path="/logout" exact component={Auth(Logout, true)} />
+        <Route path="/contact" exact component={Auth(Contact, null)} />
+        <Route path="/about" exact component={Auth(About, null)} />
       </Switch>
     </Layout>
   </div>

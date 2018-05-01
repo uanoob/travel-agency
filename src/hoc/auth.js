@@ -11,11 +11,9 @@ export default function (ComposedClass, reload) {
 
     componentWillMount() {
       this.props.dispatch(auth());
-      console.log('dispatch(auth())!');
     }
 
     componentWillReceiveProps(nextProps) {
-      console.log('ReceiveProps!');
       this.setState({
         loading: false,
       });
@@ -34,10 +32,7 @@ export default function (ComposedClass, reload) {
     }
   }
 
-  function mapStateToProps(state) {
-    return {
-      user: state.user,
-    };
-  }
+  const mapStateToProps = state => ({ user: state.user });
+
   return connect(mapStateToProps)(AuthenticationCheck);
 }

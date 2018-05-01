@@ -10,11 +10,6 @@ import {
   CLEAR_TOUR,
 } from './types';
 
-import { BASE_URL } from '../../config';
-
-axios.defaults.baseURL = BASE_URL;
-// console.log('BASE_URL: ', axios.defaults.baseURL);
-
 export const getTours = (limit = 5, start = 0, order = 'asc', list = '') => {
   const request = axios
     .get(`/api/tours?limit=${limit}&skip=${start}&order=${order}`)
@@ -76,4 +71,3 @@ export const clearTour = () => ({
     tourdeleted: false,
   },
 });
-

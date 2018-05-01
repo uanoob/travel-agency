@@ -1,15 +1,9 @@
 import axios from 'axios';
 
 import { LOGIN_USER, USER_AUTH, GET_USERS, USER_REGISTER } from './types';
-import { BASE_URL } from '../../config';
-
-axios.defaults.baseURL = BASE_URL;
-// console.log('BASE_URL: ', axios.defaults.baseURL);
 
 export const loginUser = ({ email, password }) => {
-  console.log(email, password);
   const request = axios.post('/api/login', { email, password }).then(response => response.data);
-  console.log(request);
   return {
     type: LOGIN_USER,
     payload: request,
@@ -18,7 +12,6 @@ export const loginUser = ({ email, password }) => {
 
 export const auth = () => {
   const request = axios.get('/api/auth').then(response => response.data);
-  console.log('auth request: ', request);
   return {
     type: USER_AUTH,
     payload: request,

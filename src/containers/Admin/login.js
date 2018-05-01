@@ -36,7 +36,7 @@ class Login extends Component {
   };
 
   render() {
-    console.log('this.state: ', this.state);
+    const user = this.props.user;
     return (
       <div className="container">
         <form className="form-elegant" onSubmit={this.submitForm}>
@@ -84,7 +84,7 @@ class Login extends Component {
                 >
                   Log In
                 </button>
-
+                <div className="error">{user.login ? <div>{user.login.message}</div> : null}</div>
               </div>
               <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
                 {' '}
@@ -124,10 +124,6 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    user: state.user,
-  };
-}
+const mapStateToProps = state => ({ user: state.user });
 
 export default connect(mapStateToProps)(Login);

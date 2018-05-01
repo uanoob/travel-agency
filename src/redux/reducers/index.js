@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
 import tours from './tours';
-import users from './users';
+import user from './user';
 
-const rootReducer = combineReducers({ tours, users });
+const rootReducer = combineReducers({ tours, user });
 
 export default rootReducer;
