@@ -5,11 +5,11 @@ const Footer = () => (
   <div>
     <footer className="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
       <div className="pt-4">
-        <Link className="btn btn-outline-white" to="/contactus" role="button">
+        <Link className="btn btn-outline-white" to="/contact" role="button">
           Contact Us
           <i className="fa fa-send ml-2" />
         </Link>
-        <Link className="btn btn-outline-white" to="/aboutus" role="button">
+        <Link className="btn btn-outline-white" to="/about" role="button">
           About Us
           <i className="fa fa-graduation-cap ml-2" />
         </Link>
