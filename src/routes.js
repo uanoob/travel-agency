@@ -8,7 +8,7 @@ import Login from './containers/Admin/login';
 import Register from './containers/Admin/register';
 import Profile from './components/User/profile';
 import Logout from './components/User/logout';
-import ViewTour from './components/ViewTour/viewTour';
+import ViewTour from './containers/ViewTour/viewTour';
 import Add from './containers/Admin/add';
 import Edit from './containers/Admin/edit';
 import Contact from './components/Contact/contact';
